@@ -1,73 +1,50 @@
-# Food Store
+Gota Cookies
 
-Landing page responsiva para lojas de comida e pequenos negócios locais, feita em React. Página única com quatro seções: apresentação, cardápio, história da marca e contatos.
+Landing page da Gota, confeitaria artesanal de cookies recheados em Juiz de Fora, MG. O site apresenta a marca, mostra o cardápio e reúne todos os canais de pedido e contato em uma única página.
 
-O conteúdo (textos, produtos, links, horários) fica centralizado em um único arquivo, `src/data/data.js`. Os componentes só recebem esses dados por props.
+Site online: erickrmartins.github.io/Gota
 
-## Tecnologias
-
-- [React 19](https://react.dev/)
-- [Vite 8](https://vite.dev/) (build e servidor de desenvolvimento)
-- CSS Modules (um arquivo de estilo por componente)
-- [Oxlint](https://oxc.rs/docs/guide/usage/linter) (lint)
-- Fontes do Google Fonts: **Cookie** (títulos) e **Montserrat** (texto)
-- GitHub Actions para deploy no GitHub Pages
-
-## Seções da página
-
-| Seção | Âncora | Descrição |
-| --- | --- | --- |
-| Início | `#inicio` | Título, texto de apresentação, botões de cardápio e pedido, e imagem principal |
-| Cardápio | `#cardapio` | Grade de produtos com foto, nome, descrição, preço opcional e botão de pedido |
-| Sobre Nós | `#sobre-nos` | História da marca com foto |
-| Contatos | `#contatos` | Delivery, localização, redes sociais e horário de funcionamento |
-
-O `Header` tem menu de navegação por âncoras, botão **Pedir** e vira um menu hambúrguer em telas pequenas. O `Footer` exibe os ícones das redes sociais, o nome e o CNPJ da empresa e o crédito do desenvolvedor.
-
-## Estrutura do projeto
-
-```
-food-store/
+Seções
+Seção	Âncora	Conteúdo
+Início	#inicio	Apresentação da marca e botões para ver o cardápio e pedir
+Cardápio	#cardapio	Cookies com foto, descrição e preço. Cada card leva ao link de pedido
+Sobre Nós	#sobre-nos	História e modo de preparo da marca
+Contatos	#contatos	Delivery, localização, redes sociais e horário de funcionamento
+Tecnologias
+React 19 e Vite 8
+CSS Modules
+Oxlint
+Fontes do Google Fonts: Cookie (títulos) e Montserrat (texto)
+GitHub Actions e GitHub Pages para o deploy
+Estrutura do projeto
+Gota/
 ├── .github/workflows/
 │   └── deploy.yml           # Deploy automático no GitHub Pages
-├── public/                  # Arquivos estáticos (imagens, ícones)
-│   ├── cardapio/            # Fotos dos produtos (1.jpg, 2.jpg, ...)
-│   ├── icones/
-│   │   ├── 1/               # Ícones da seção de contatos com id 1 (1.png, 2.png, ...)
-│   │   ├── 2/               # Ícones da seção de contatos com id 2
-│   │   ├── 3/               # Ícones da seção de contatos com id 3
-│   │   └── redes/           # Ícones das redes sociais exibidos no rodapé
-│   ├── sobre/               # Fotos da seção Sobre Nós (1.jpg, ...)
+├── public/
+│   ├── cardapio/            # Fotos dos cookies (1.jpg ... 6.jpg)
+│   ├── icones/              # Ícones da seção de contatos (pastas 1, 2 e 3)
+│   │   └── redes/           # Ícones das redes sociais do rodapé
+│   ├── sobre/               # Foto da seção Sobre Nós
 │   ├── inicio.jpg           # Imagem principal
-│   ├── logo.png             # Logo (também usado como favicon)
+│   ├── logo.png             # Logo e favicon
 │   ├── menu.svg             # Ícone do menu mobile
 │   └── pedir.png            # Ícone do botão Pedir
 ├── src/
-│   ├── components/
-│   │   ├── header/          # Cabeçalho e menu (desktop e mobile)
-│   │   ├── footer/          # Rodapé
-│   │   └── item-cardapio/   # Card de produto do cardápio
-│   ├── sections/
-│   │   ├── inicio/
-│   │   ├── cardapio/
-│   │   ├── sobre-nos/
-│   │   └── contatos/
-│   ├── data/
-│   │   └── data.js          # Todo o conteúdo do site
-│   ├── App.jsx              # Monta a página e distribui os dados
-│   ├── App.css              # Estilos globais e variáveis de tema
+│   ├── components/          # Header, Footer e ItemCardapio
+│   ├── sections/            # Início, Cardápio, Sobre Nós e Contatos
+│   ├── data/data.js         # Todo o conteúdo do site
+│   ├── App.jsx
+│   ├── App.css              # Variáveis de tema e estilos globais
 │   └── main.jsx
 ├── index.html
 ├── vite.config.js
 └── package.json
-```
+Como rodar
 
-## Como rodar
+Pré-requisito: Node.js instalado (o deploy usa a versão 20).
 
-Pré-requisito: [Node.js](https://nodejs.org/) instalado (o workflow de deploy usa a versão 20).
-
-```bash
-# Instalar dependências
+bash
+# Instalar as dependências (necessário após clonar)
 npm install
 
 # Servidor de desenvolvimento
@@ -76,94 +53,53 @@ npm run dev
 # Gerar a versão de produção (pasta dist/)
 npm run build
 
-# Visualizar a versão de produção localmente
+# Testar a versão de produção localmente
 npm run preview
 
 # Verificar o código com o linter
 npm run lint
-```
+Como atualizar o conteúdo
 
-## Como editar o conteúdo
+Tudo o que aparece no site vem de src/data/data.js. Para uma atualização de rotina:
 
-Todo o conteúdo está em `src/data/data.js`, dividido em blocos:
+O que mudar	Onde
+Preço, nome ou descrição de um cookie	cardapio.itens
+Novo sabor	Adicionar um item em cardapio.itens com um novo id e a foto public/cardapio/<id>.jpg
+Horário de funcionamento	contatos.horarios
+Link de pedido	empresa.link (usado no cabeçalho, no início e nos cards) e o item "Peça aqui" em contatos.secoes
+Endereço, iFood, WhatsApp e redes sociais	contatos.secoes
+Textos de apresentação e história	inicio e sobre
 
-| Bloco | O que controla |
-| --- | --- |
-| `empresa` | `nome` e `cnpj` (exibidos no rodapé) e `link`, o link de pedido principal |
-| `inicio` | `titulo` e `subtitulo` da seção Início (o título também é o texto alternativo da imagem) |
-| `cardapio` | `titulo`, `subtitulo` e a lista `itens` |
-| `sobre` | `titulo`, `subtitulo` e a lista `secoes` |
-| `contatos` | `titulo`, `subtitulo`, `horarios` e a lista `secoes` |
+Observações:
 
-O `empresa.link` é usado em três lugares: no botão **Pedir** do cabeçalho, no botão **PEDIR AGORA** da seção Início e em todos os cards do cardápio (o card inteiro é um link).
+O preco de cada item é opcional. Se for removido, o valor não aparece no site.
+A foto de cada item vem do id: public/cardapio/<id>.jpg. O mesmo vale para public/sobre/<id>.jpg e para os ícones em public/icones/<seção>/<item>.png.
+O rodapé usa a terceira seção de contatos.secoes (secoes[2]) como lista de redes sociais, com os ícones em public/icones/redes/<item>.png. Mantenha as redes sociais nessa posição.
+Para trocar uma imagem, substitua o arquivo em public/ mantendo o mesmo nome.
 
-### Produtos do cardápio
+Depois de editar, faça o commit e o push na main. O site é atualizado sozinho em cerca de um a dois minutos.
 
-```js
-{
-    "id": 3,
-    "nome": "Nutella",
-    "descricao": "Massa de baunilha com gota de chocolate e recheio de nutella.",
-    "preco": "14,00"   // opcional
-}
-```
+Tema
 
-| Campo | Obrigatório | Descrição |
-| --- | --- | --- |
-| `id` | Sim | Identificador único. Também define a foto: `public/cardapio/<id>.jpg` |
-| `nome` | Sim | Nome do produto (também usado como texto alternativo da imagem) |
-| `descricao` | Sim | Descrição do produto |
-| `preco` | Não | Se omitido, o preço não aparece na página |
+As cores e sombras são variáveis CSS no :root do arquivo src/App.css (--color-main-bg, --color-card-bg, --color-card-text-main, entre outras). Os títulos usam a fonte Cookie e o restante do texto usa a Montserrat, ambas carregadas no index.html.
 
-### Sobre Nós
+Deploy
 
-Cada item de `sobre.secoes` tem `id`, `titulo` e `descricao`. A foto é `public/sobre/<id>.jpg`.
+O site é publicado no GitHub Pages pelo workflow .github/workflows/deploy.yml. A cada push na branch main (ou manualmente, em Actions > Run workflow), ele instala as dependências, gera o build e publica a pasta dist/. O andamento aparece na aba Actions do repositório.
 
-### Contatos
+Como o site fica no subcaminho /Gota/, o vite.config.js define base: '/Gota/', e as imagens usadas nos componentes devem ser referenciadas a partir de import.meta.env.BASE_URL. Se o repositório for renomeado ou o site passar para um domínio próprio, esse valor precisa ser ajustado.
 
-- **`horarios`**: lista de `{ id, dia, hora }`, exibida no bloco Funcionamento.
-- **`secoes`**: cada seção tem `id`, `titulo` e uma lista `dados` com `{ id, label, link }`.
-- O ícone de cada item é `public/icones/<id da seção>/<id do item>.png`. Ao adicionar um item, adicione também o ícone com os mesmos ids.
-- **Atenção:** o rodapé usa a terceira seção de `contatos.secoes` (`secoes[2]`) como lista de redes sociais, com os ícones em `public/icones/redes/<id do item>.png`. Mantenha as redes sociais nessa posição.
+Configuração necessária no GitHub: em Settings > Pages, a fonte (Source) deve estar em GitHub Actions.
 
-### Imagens
+Content
+landing-page-food-store.zip
 
-Substitua os arquivos em `public/` mantendo os mesmos nomes. As imagens são referenciadas por caminho absoluto (`/logo.png`, `/cardapio/1.jpg` etc.).
+ZIP
 
-### O que ainda não vem do `data.js`
+landing-page-food-store_1.zip
 
-Estes itens estão escritos direto nos componentes ou no `index.html`:
+ZIP
 
-- Rótulos do menu (Início, Cardápio, Sobre Nós, Contatos) e do botão **Pedir**
-- Botões **Ver Cardápio**, **PEDIR AGORA** e **Peça já**
-- Títulos "Funcionamento" e "Todos os direitos reservados" e o crédito "Desenvolvido por" no rodapé
-- Texto alternativo do logo e do menu
-- `<title>`, favicon e fontes, em `index.html`
+export const data = { "empresa": { "nome": "Gota", "cnpj": "67.277.752/0001-75", "link": "https://whatsmenu.com.br/gotacookies" }, "inicio": { "titulo": "Amor na Primeira Mordida", "subtitulo": "Cookies artesanais recheados, assados diariam
 
-## Tema e design
-
-As cores e sombras são variáveis CSS definidas em `:root`, no arquivo `src/App.css`:
-
-| Variável | Uso |
-| --- | --- |
-| `--color-main-bg` | Fundo da página |
-| `--color-card-bg` | Fundo de cards e seções |
-| `--color-card-border` | Borda de cards |
-| `--color-card-text-main` | Cor de destaque (títulos, links em hover) |
-| `--color-card-text-sec` | Cor do texto comum |
-| `--shadow-card` | Sombra dos cards |
-| `--color-button-bg` / `--color-button-text` | Botões |
-
-Para mudar a identidade visual, altere esses valores e troque as fontes no `index.html`.
-
-## Responsividade
-
-O layout se adapta em telas de até `768px`: as colunas são empilhadas, os tamanhos de fonte diminuem e o menu vira um botão hambúrguer.
-
-## Deploy
-
-O projeto gera arquivos estáticos na pasta `dist/` com `npm run build`, então pode ser publicado em qualquer hospedagem estática, como GitHub Pages, Cloudflare Pages ou Netlify.
-
-Para o GitHub Pages já existe o workflow `.github/workflows/deploy.yml`: a cada push na branch `main` (ou manualmente, por *Run workflow*), ele instala as dependências, gera o build e publica a pasta `dist/`. É preciso ativar o GitHub Pages no repositório em **Settings > Pages**, com a fonte **GitHub Actions**.
-
-Se o site for publicado em um subcaminho (por exemplo `usuario.github.io/nome-do-repo`), é preciso definir `base` no `vite.config.js` e ajustar os caminhos das imagens usados no código (`/logo.png`, `/cardapio/...`, `/icones/...`). Em domínio próprio ou na raiz do domínio, nada disso é necessário.
+PASTED
