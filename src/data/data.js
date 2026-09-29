@@ -1,12 +1,12 @@
 export const data = {
     "empresa": {
-        "nome": "Cookie",
-        "cnpj": "0123456789",
+        "nome": "Gota",
+        "cnpj": "67.277.752/0001-75",
         "link": "https://whatsmenu.com.br/gotacookies"
     },
     "inicio": {
         "titulo": "Amor na Primeira Mordida",
-        "subtitulo": "Cookies artesanais recheados, assados diariamente para garantir a melhor experiência. Descubra o seu novo sabor favorito.",
+        "subtitulo": "Cookies artesanais recheados, assados diariamente para garantir a melhor experiência. Descubra o seu novo sabor favorito."
     },
     "cardapio": {
         "titulo": "Nosso Cardápio Irresistível",
@@ -16,43 +16,43 @@ export const data = {
                 "id": 1,
                 "nome": "Chocolate Triplo",
                 "descricao": "Massa de cacau com chocolate ao leite, meio amargo e branco, recheado com chocolate branco e meio amargo.",
-                "preco": '14,00'
+                "preco": "14,00"
             },
             {
                 "id": 2,
                 "nome": "Kinder Bueno",
                 "descricao": "Massa de baunilha, muito chocolate branco e ao leite, com recheio de kinder com avelã torrada.",
-                "preco": '14,00'
+                "preco": "14,00"
             },
             {
                 "id": 3,
                 "nome": "Nutella",
                 "descricao": "Massa de baunilha com gota de chocolate e recheio de nutella.",
-                "preco": '14,00'
+                "preco": "14,00"
             },
             {
                 "id": 4,
                 "nome": "Pistache",
                 "descricao": "Massa de baunilha com farofa de pistache, chocolate branco e recheio de pistache torrado com ganache de chocolate branco.",
-                "preco": '14,00'
+                "preco": "14,00"
             },
             {
                 "id": 5,
                 "nome": "Red Velvet",
                 "descricao": "Massa especial de red velvet com chocolate branco e recheio de ninho caramelizado com cream cheese.",
-                "preco": '14,00'
+                "preco": "14,00"
             },
             {
                 "id": 6,
                 "nome": "Tradicional",
                 "descricao": "Massa aromatizada de baunilha com muita gota de chocolate.",
-                "preco": '14,00'
-            },
-        ],
+                "preco": "14,00"
+            }
+        ]
     },
     "sobre": {
         "titulo": "Nossa História Começou na Cozinha",
-        "subtitulo": "A Cookie nasceu do amor pela confeitaria de verdade, aquela que respeita o tempo dos ingredientes e enche a casa com aquele cheirinho irresistível de massa assando.",
+        "subtitulo": "A Gota nasceu do amor pela confeitaria de verdade, aquela que respeita o tempo dos ingredientes e enche a casa com aquele cheirinho irresistível de massa assando.",
         "secoes": [
             {
                 "id": 1,
@@ -68,17 +68,17 @@ export const data = {
             {
                 "id": 1,
                 "dia": "SEG-SEX:",
-                "hora": "12:00 - 18:00",
+                "hora": "12:00 - 18:00"
             },
             {
                 "id": 2,
                 "dia": "SÁBADO:",
-                "hora": "11:00 - 17:00",
+                "hora": "11:00 - 17:00"
             },
             {
                 "id": 3,
                 "dia": "DOMINGO:",
-                "hora": "CONSULTA",
+                "hora": "Sob consulta"
             }
         ],
         "secoes": [
@@ -135,7 +135,7 @@ export const data = {
                         "link": "https://wa.me/5532984466404"
                     }
                 ]
-            },
+            }
         ]
     },
 }
