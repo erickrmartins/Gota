@@ -87,6 +87,7 @@
 @media (max-width: 768px) {
     .inicio {
         flex-direction: column;
+        min-height: 0px;
     }
 
     .esquerda {
